@@ -20,6 +20,18 @@ class TaskController
         $this->service = new TaskService();
     }
 
+    public function renderCreateTaskPage(): void
+    {
+        $view = '/tasks/create';
+        include_once __DIR__ . '/../views/view.php';
+    }
+
+    public function renderHomePage(): void
+    {
+        $view = '/tasks/list';
+        include_once __DIR__ . '/../views/view.php';
+    }
+
     public function create()
     {
         try {

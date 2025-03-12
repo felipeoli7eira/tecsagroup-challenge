@@ -14,7 +14,7 @@ class TaskRepository
         $this->db = DB::instance();
     }
 
-    public function create(array $data)
+    public function create(array $data): bool
     {
         $stmt = $this->db->prepare(
             "INSERT INTO tasks
@@ -22,18 +22,14 @@ class TaskRepository
             VALUES (:title, :description, :status)"
         );
 
-        $result = $stmt->execute($data);
-
-        var_dump($result);
+        return $stmt->execute($data);
     }
 
-    public function read()
+    public function read(): array
     {
         $stmt = $this->db->query("SELECT * FROM tasks");
 
-        $result = $stmt->fetchAll();
-
-        var_dump($result);
+        return $stmt->fetchAll();
     }
 
     public function update(int $id, array $data)
