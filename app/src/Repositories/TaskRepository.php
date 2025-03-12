@@ -32,23 +32,17 @@ class TaskRepository
         return $stmt->fetchAll();
     }
 
-    public function update(int $id, array $data)
+    public function update(int $id, array $data): bool
     {
-        // var_dump([...$data, 'id' => $id]);
-        // exit();
         $stmt = $this->db->prepare("UPDATE tasks SET title=:title, description=:description, status=:status WHERE id=:id");
 
-        $result = $stmt->execute([...$data, 'id' => $id]);
-
-        var_dump($result);
+        return $stmt->execute([...$data, 'id' => $id]);
     }
 
-    public function delete(int $id)
+    public function delete(int $id): bool
     {
         $stmt = $this->db->prepare("DELETE FROM tasks WHERE id=:id");
 
-        $result = $stmt->execute(['id' => $id]);
-
-        var_dump($result);
+        return $stmt->execute(['id' => $id]);
     }
 }

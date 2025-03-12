@@ -40,11 +40,31 @@ class TaskService
 
     public function update(int $id, array $data)
     {
-        $this->repository->update($id, $data);
+        $result = $this->repository->update($id, $data);
+
+        if (! $result) {
+            $this->response->httpCode(500)->json([
+                'error' => 'Failed to update task',
+            ]);
+        }
+
+        $this->response->httpCode(200)->json([
+            'message' => 'Task updated successfully',
+        ]);
     }
 
     public function delete(int $id)
     {
-        $this->repository->delete($id);
+        $result = $this->repository->delete($id);
+
+        if (! $result) {
+            $this->response->httpCode(500)->json([
+                'error' => 'Failed to delete task',
+            ]);
+        }
+
+        $this->response->httpCode(200)->json([
+            'message' => 'Task deleted successfully',
+        ]);
     }
 }
