@@ -1,0 +1,33 @@
+version: '3'
+
+vars:
+  CONTAINER_BACKEND: 'phpapch_service'
+
+tasks:
+  setup:
+    cmds:
+      - docker compose up -d --build
+      # - task: grant_permissions
+    desc: "Setup environment"
+
+  stop:
+    cmds:
+      - docker compose down
+    desc: "Shutdown environment"
+
+  start:
+    cmds:
+      - docker compose up -d
+    desc: "Start environment"
+
+  start_build:
+    cmds:
+      - docker compose up -d --build
+    desc: "Start environment with build"
+
+  grant_permissions:
+    cmds:
+      - docker exec -it {{.CONTAINER_BACKEND}} chmod -R 777 .
+    desc: "Grant permissions"
+
+silent: true

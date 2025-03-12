@@ -1,0 +1,18 @@
+{
+    "name": "foliveira/todo",
+    "description": "tecsa group challenge",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felipe Oliveira"
+        }
+    ],
+    "require": {
+        "pecee/simple-router": "^5.4"
+    }
+}
