@@ -1,11 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Src\Controllers;
 
 use Pecee\Http\Input\InputHandler as Input;
 use Pecee\Http\Request;
 use Src\Services\TaskService;
 use Throwable;
+
+enum Status: string
+{
+    case do = 'A fazer';
+    case doing = 'Fazendo';
+    case done = 'Feito';
+
+    public function value(): string
+    {
+        return $this->value;
+    }
+}
 
 class TaskController
 {
@@ -23,6 +37,20 @@ class TaskController
     public function renderCreateTaskPage(): void
     {
         $view = '/tasks/create';
+        include_once __DIR__ . '/../views/view.php';
+    }
+
+    public function renderEditTaskPage(int $id): void
+    {
+        $view = '/tasks/edit';
+        $data = $this->service->readOne($id);
+
+        $data->friendlyStatus = match ($data->status) {
+            'do'    => Status::do->value(),
+            'doing' => Status::doing->value(),
+            'done'  => Status::done->value(),
+        };
+
         include_once __DIR__ . '/../views/view.php';
     }
 

@@ -38,6 +38,11 @@ class TaskService
         $this->response->httpCode(200)->json($data);
     }
 
+    public function readOne(int $id): \stdClass
+    {
+        return $this->repository->readOne($id);
+    }
+
     public function update(int $id, array $data)
     {
         $result = $this->repository->update($id, $data);

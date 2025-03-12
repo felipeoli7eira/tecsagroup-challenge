@@ -4,6 +4,7 @@ namespace Src\Repositories;
 
 use PDO;
 use Src\Database\Connection as DB;
+use stdClass;
 
 class TaskRepository
 {
@@ -30,6 +31,15 @@ class TaskRepository
         $stmt = $this->db->query("SELECT * FROM tasks");
 
         return $stmt->fetchAll();
+    }
+
+    public function readOne(int $id): \stdClass
+    {
+        $stmt = $this->db->prepare("SELECT * FROM tasks WHERE id=:id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        return $stmt->fetch();
     }
 
     public function update(int $id, array $data): bool

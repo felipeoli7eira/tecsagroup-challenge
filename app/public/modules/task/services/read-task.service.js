@@ -72,7 +72,11 @@ export class ReadTask {
       changeToDonegBtn.innerHTML = "Feito(a)";
       changeToDonegBtn.onclick = () => this.changeStatus(task, "done");
 
-      row.insertCell().textContent = task.title;
+      const linkToUpdate = document.createElement("a");
+      linkToUpdate.setAttribute("href", "/edicao/".concat(task.id.toString()));
+      linkToUpdate.textContent = task.title;
+
+      row.insertCell().appendChild(linkToUpdate);
       row.insertCell().textContent = task.description;
 
       const controls = row.insertCell();
@@ -116,7 +120,11 @@ export class ReadTask {
       changeToDonegBtn.innerHTML = "Feito(a)";
       changeToDonegBtn.onclick = () => this.changeStatus(task, "done");
 
-      row.insertCell().textContent = task.title;
+      const linkToUpdate = document.createElement("a");
+      linkToUpdate.setAttribute("href", "/edicao/".concat(task.id.toString()));
+      linkToUpdate.textContent = task.title;
+
+      row.insertCell().appendChild(linkToUpdate);
       row.insertCell().textContent = task.description;
 
       const controls = row.insertCell();
