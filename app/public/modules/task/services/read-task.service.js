@@ -70,7 +70,10 @@ export class Read {
 
       const descriptionCell = row.insertCell();
       descriptionCell.classList.add("text-nowrap");
-      descriptionCell.textContent = task.description;
+      descriptionCell.textContent =
+        task.description.length > 10
+          ? task.description.slice(0, 10).trim().concat("...")
+          : task.description;
 
       const changeSttsCell = row.insertCell();
       changeSttsCell.classList.add("d-flex", "flex-nowrap");
@@ -117,7 +120,10 @@ export class Read {
 
       const descriptionCell = row.insertCell();
       descriptionCell.classList.add("text-nowrap");
-      descriptionCell.textContent = task.description;
+      descriptionCell.textContent =
+        task.description.length > 10
+          ? task.description.slice(0, 10).trim().concat("...")
+          : task.description;
 
       const changeSttsCell = row.insertCell();
       changeSttsCell.classList.add("d-flex", "flex-nowrap");

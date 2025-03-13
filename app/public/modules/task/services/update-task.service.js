@@ -59,8 +59,6 @@ export class Update {
 
   mountForm(data) {
     const form = document.forms.updateForm;
-    document.querySelector(".status-info").textContent =
-      this.status[data.status];
 
     form.querySelector("[name=title]").value = data.title;
     form.querySelector("[name=description]").value = data.description;
@@ -80,19 +78,20 @@ export class Update {
     const selectStatus = form.querySelector("[name=status]");
 
     if (data.status === "do") {
-      selectStatus.appendChild(doingOption);
-      selectStatus.appendChild(doneOption);
+      doOption.selected = true;
     }
 
     if (data.status === "doing") {
-      selectStatus.appendChild(doOption);
-      selectStatus.appendChild(doneOption);
+      doingOption.selected = true;
     }
 
     if (data.status === "done") {
-      selectStatus.appendChild(doOption);
-      selectStatus.appendChild(doingOption);
+      doneOption.selected = true;
     }
+
+    selectStatus.appendChild(doOption);
+    selectStatus.appendChild(doingOption);
+    selectStatus.appendChild(doneOption);
 
     this.addFormSubmitEventListener();
   }
