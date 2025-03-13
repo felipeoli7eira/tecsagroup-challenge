@@ -7,6 +7,6 @@ require_once __DIR__ . '/routes.php';
 try {
     Router::setDefaultNamespace('\Src\Controllers');
     Router::start();
-} catch (\Throwable $exception) {
-    var_dump($exception);
+} catch (\Exception $exception) {
+    echo $exception->getMessage();
 }

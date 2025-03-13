@@ -16,7 +16,7 @@
             <div class="tab-content" id="myTabContent">
                 <!-- do panel -->
                 <div class="tab-pane fade show active" id="do-tab-pane" aria-labelledby="home-tab" tabindex="0">
-                    <table class="table p-0 m-0 table-hover" id="table-list-do-tasks">
+                    <table class="table p-0 m-0 table-hover" id="to-do-tasks">
                         <thead>
                             <tr>
                                 <th scope="col">Tarefa</th>
@@ -32,7 +32,7 @@
 
                 <!-- doing panel -->
                 <div class="tab-pane fade" id="doing-tab-pane" aria-labelledby="profile-tab" tabindex="0">
-                    <table class="table p-0 m-0 table-hover" id="table-list-doing-tasks">
+                    <table class="table p-0 m-0 table-hover" id="doing-tasks">
                         <thead>
                             <tr>
                                 <th scope="col">Tarefa</th>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="tab-pane fade" id="done-tab-pane" aria-labelledby="contact-tab" tabindex="0">
-                    <table class="table p-0 m-0 table-hover" id="table-list-done-tasks">
+                    <table class="table p-0 m-0 table-hover" id="done-tasks">
                         <thead>
                             <tr>
                                 <th scope="col">Tarefa</th>
@@ -65,4 +65,4 @@
     </div>
 </div>
 
-<script src="/modules/task/list.js" type="module"></script>
+<script src="/modules/task/read.js" type="module"></script>

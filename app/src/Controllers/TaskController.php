@@ -27,8 +27,6 @@ class TaskController
     private readonly Input $input;
     private readonly TaskService $service;
 
-    private string $view;
-
     public function __construct()
     {
         $this->request = new Request();
@@ -38,26 +36,17 @@ class TaskController
 
     public function renderCreateTaskPage(): void
     {
-        $this->renderView('/tasks/create');
+        $this->renderView('tasks/create');
     }
 
     public function renderUpdateScreen(): void
     {
-        $this->renderView('/tasks/update');
-
-        // $data = $this->service->readOne($id);
-
-        // $data->friendlyStatus = match ($data->status) {
-        //     'do'    => Status::do->value(),
-        //     'doing' => Status::doing->value(),
-        //     'done'  => Status::done->value(),
-        // };
+        $this->renderView('tasks/update');
     }
 
-    public function renderHomePage(): void
+    public function renderHomeScreen(): void
     {
-        $view = '/tasks/list';
-        include_once __DIR__ . '/../views/view.php';
+        $this->renderView('tasks/read');
     }
 
     public function create()
@@ -104,6 +93,6 @@ class TaskController
     private function renderView(string $viewName): void
     {
         $view = $viewName;
-        include_once __DIR__ . '/../views/view.php';
+        include_once __DIR__ . '/../views/container.php';
     }
 }

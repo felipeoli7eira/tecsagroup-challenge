@@ -2,7 +2,7 @@
 
 use Pecee\SimpleRouter\SimpleRouter as Route;
 
-Route::get('/', 'TaskController@renderHomePage');
+Route::get('/', 'TaskController@renderHomeScreen');
 Route::get('/cadastro', 'TaskController@renderCreateTaskPage');
 Route::get('/edicao/{id}', 'TaskController@renderUpdateScreen');
 

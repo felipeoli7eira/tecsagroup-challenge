@@ -9,5 +9,4 @@ use Src\Database\DatabaseBootstrap;
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../router/router.php';
 
-
 new DatabaseBootstrap();
