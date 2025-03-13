@@ -1,41 +1,43 @@
-<div class="d-flex justify-content-center row m-0">
-    <form class="p-5 col col-12 col-md-3" name="createForm">
+<div class="row m-0 p-3 p-lg-5">
+    <form class="col col-12 col-lg-5 offset-lg-4" name="createForm">
         <div class="mb-3 row">
-            <div class="col-12 col-md-2 d-flex justify-content-start align-items-center p-0">
+            <div class="col-12 col-lg-2 mb-2 mb-lg-0 d-flex justify-content-start align-items-center p-0">
                 <label for="title" class="form-label m-0">Nome <span class="text-danger fw-bold">*</span></label>
             </div>
 
-            <div class="col-12 col-md-10 p-0">
+            <div class="col-12 col-lg-10 p-0">
                 <input
                     type="text"
                     class="form-control"
                     placeholder="..."
                     name="title"
-                    id="title" />
+                    id="title"
+                    maxlength="255" />
             </div>
         </div>
 
         <div class="mb-3 row">
-            <div class="col-12 col-md-2 d-flex justify-content-start align-items-center p-0">
+            <div class="col-12 col-lg-2 mb-2 mb-lg-0 d-flex justify-content-start align-items-center p-0">
                 <label for="description" class="form-label m-0">Descrição <span class="text-danger fw-bold">*</span></label>
             </div>
 
-            <div class="col-12 col-md-10 p-0">
+            <div class="col-12 col-lg-10 p-0">
                 <input
                     type="text"
                     class="form-control"
                     placeholder="..."
                     name="description"
-                    id="description" />
+                    id="description"
+                    maxlength="255" />
             </div>
         </div>
 
         <div class="mb-3 row">
-            <div class="col-12 col-md-2 d-flex justify-content-start align-items-center p-0">
+            <div class="col-12 col-lg-2 mb-2 mb-lg-0 d-flex justify-content-start align-items-center p-0">
                 <label for="status" class="form-label m-0">Status <span class="text-danger fw-bold">*</span></label>
             </div>
 
-            <div class="col-12 col-md-10 p-0">
+            <div class="col-12 col-lg-10 p-0">
                 <select class="form-control" name="status" id="status">
                     <option value="do">Fazer</option>
                     <option value="doing">Fazendo</option>
@@ -43,8 +45,10 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary fw-semibold">Cadastrar</button>
+        <div class="row">
+            <div class="p-0 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary fw-semibold">Cadastrar</button>
+            </div>
         </div>
     </form>
 </div>

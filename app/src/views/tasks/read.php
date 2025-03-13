@@ -1,6 +1,6 @@
-<div class="row m-0 p-5">
-    <div class="row m-0 p-0 d-flex justify-content-center">
-        <div class="col m-0 col-12 col-md-6">
+<div class="row m-0 p-2 p-md-5">
+    <div class="row m-0 p-0">
+        <div class="col col-12 col-xl-6 offset-xl-3">
             <ul class="nav nav-pills mb-3" id="pills-tab">
                 <li class="nav-item">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#do-tab-pane" type="button" aria-controls="do-tab-pane" aria-selected="true">A fazer</button>
@@ -15,50 +15,56 @@
 
             <div class="tab-content" id="myTabContent">
                 <!-- do panel -->
-                <div class="tab-pane fade show active" id="do-tab-pane" aria-labelledby="home-tab" tabindex="0">
-                    <table class="table p-0 m-0 table-hover" id="to-do-tasks">
-                        <thead>
-                            <tr>
-                                <th scope="col">Tarefa</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Mudar status</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                <div class="tab-pane fade show active" id="do-tab-pane" tabindex="0">
+                    <div class="table-responsive">
+                        <table class="table p-0 m-0 table-hover" id="to-do-tasks">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tarefa</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Mudar status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!-- doing panel -->
-                <div class="tab-pane fade" id="doing-tab-pane" aria-labelledby="profile-tab" tabindex="0">
-                    <table class="table p-0 m-0 table-hover" id="doing-tasks">
-                        <thead>
-                            <tr>
-                                <th scope="col">Tarefa</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Mudar status</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                <div class="tab-pane fade" id="doing-tab-pane" tabindex="0">
+                    <div class="table-responsive">
+                        <table class="table p-0 m-0 table-hover" id="doing-tasks">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tarefa</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Mudar status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
-                <div class="tab-pane fade" id="done-tab-pane" aria-labelledby="contact-tab" tabindex="0">
-                    <table class="table p-0 m-0 table-hover" id="done-tasks">
-                        <thead>
-                            <tr>
-                                <th scope="col">Tarefa</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Mudar status</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                <div class="tab-pane fade" id="done-tab-pane" tabindex="0">
+                    <div class="table-responsive">
+                        <table class="table p-0 m-0 table-hover" id="done-tasks">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tarefa</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Mudar status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

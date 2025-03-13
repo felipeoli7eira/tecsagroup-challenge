@@ -1,4 +1,5 @@
 import envs from "../../envs.js";
+import { isFormValid } from "./../form-validation.js";
 
 export class Update {
   status = {
@@ -8,9 +9,12 @@ export class Update {
   };
 
   id = undefined;
+  formCheck;
 
   constructor() {
     console.log("[Update] module mounted 🚀");
+
+    this.formCheck = isFormValid;
   }
 
   mount() {
@@ -104,6 +108,13 @@ export class Update {
       );
 
       const formData = Object.fromEntries(form.entries());
+
+      let isFormValid = this.formCheck(formData);
+
+      if (!isFormValid.valid) {
+        alert(isFormValid.message);
+        return;
+      }
 
       await this.update(formData);
     };

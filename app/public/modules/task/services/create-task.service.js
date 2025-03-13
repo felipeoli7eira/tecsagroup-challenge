@@ -1,8 +1,13 @@
 import envs from "../../envs.js";
+import { isFormValid } from "./../form-validation.js";
 
 export class Create {
+  formCheck;
+
   constructor() {
     console.log("Create task module installed 🚀");
+
+    this.formCheck = isFormValid;
   }
 
   mount() {
@@ -19,17 +24,15 @@ export class Create {
 
       const formData = Object.fromEntries(form.entries());
 
-      if (!this.isFormValid(formData)) {
-        alert("Formulário inválido. Verifique e tente novamente");
+      let isFormValid = this.formCheck(formData);
+
+      if (!isFormValid.valid) {
+        alert(isFormValid.message);
         return;
       }
 
       await this.send(formData);
     };
-  }
-
-  isFormValid(formData) {
-    return true;
   }
 
   async send(formData) {
