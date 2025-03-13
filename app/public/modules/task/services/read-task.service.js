@@ -69,6 +69,7 @@ export class Read {
         .classList.add("fw-semibold", "text-nowrap");
 
       const descriptionCell = row.insertCell();
+      descriptionCell.setAttribute("title", task.description);
       descriptionCell.classList.add("text-nowrap");
       descriptionCell.textContent =
         task.description.length > 10
@@ -120,6 +121,7 @@ export class Read {
 
       const descriptionCell = row.insertCell();
       descriptionCell.classList.add("text-nowrap");
+      descriptionCell.setAttribute("title", task.description);
       descriptionCell.textContent =
         task.description.length > 10
           ? task.description.slice(0, 10).trim().concat("...")
