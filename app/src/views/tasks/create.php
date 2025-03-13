@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center row m-0">
-    <form class="p-5 col col-12 col-md-3" name="createTaskForm">
+    <form class="p-5 col col-12 col-md-3" name="createForm">
         <div class="mb-3 row">
             <div class="col-12 col-md-2 d-flex justify-content-start align-items-center p-0">
                 <label for="title" class="form-label m-0">Nome <span class="text-danger fw-bold">*</span></label>

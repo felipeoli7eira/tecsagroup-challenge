@@ -3,7 +3,7 @@
 use Pecee\SimpleRouter\SimpleRouter as Route;
 
 Route::get('/', 'TaskController@renderHomeScreen');
-Route::get('/cadastro', 'TaskController@renderCreateTaskPage');
+Route::get('/cadastro', 'TaskController@renderCreateScreen');
 Route::get('/edicao/{id}', 'TaskController@renderUpdateScreen');
 
 Route::group(['prefix' => '/api'], function (): void {

@@ -1,29 +1,36 @@
 import envs from "../../envs.js";
 
-export class CreateTask {
+export class Create {
   constructor() {
     console.log("Create task module installed 🚀");
   }
 
+  mount() {
+    this.handleSubmit();
+  }
+
   handleSubmit() {
-    document.forms.createTaskForm.onsubmit = async (event) => {
+    document.forms.createForm.onsubmit = async (event) => {
       event.preventDefault();
 
       const form = new FormData(
-        document.querySelector("form[name=createTaskForm]")
+        document.querySelector("form[name=createForm]")
       );
 
       const formData = Object.fromEntries(form.entries());
 
-      await this.send(formData);
+      if (!this.isFormValid(formData)) {
+        alert("Formulário inválido. Verifique e tente novamente");
+        return;
+      }
 
-      //   if (!this.isFormValid(formData)) {
-      //     alert("Formulário inválido. Verifique e tente novamente");
-      //   }
+      await this.send(formData);
     };
   }
 
-  isFormValid(formData) {}
+  isFormValid(formData) {
+    return true;
+  }
 
   async send(formData) {
     try {
@@ -35,17 +42,15 @@ export class CreateTask {
         body: JSON.stringify(formData),
       });
 
-      console.log(response);
-
       if (response.status !== 201) {
-        alert("Erro ao criar a nova tareda.");
+        alert("Erro ao criar a nova tarefa.");
         return;
       }
 
       window.location.href = "/";
     } catch (error) {
       console.log(error);
-      alert("Erro ao criar a nova tareda.");
+      alert("Erro ao criar a nova tarefa.");
     }
   }
 }

@@ -20,9 +20,15 @@ class TaskService
 
     public function create(array $data)
     {
-        $result = $this->repository->create($data);
+        try {
+            $result = $this->repository->create($data);
+        } catch (Throwable $throwable) {
+            $this->response->httpCode(500)->json([
+                'error' => $throwable->getMessage(),
+            ]);
+        }
 
-        if (! $result) {
+        if ($result === false) {
             $this->response->httpCode(500)->json([
                 'error' => 'Failed to create task',
             ]);

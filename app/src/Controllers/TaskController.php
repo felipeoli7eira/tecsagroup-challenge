@@ -34,7 +34,7 @@ class TaskController
         $this->service = new TaskService();
     }
 
-    public function renderCreateTaskPage(): void
+    public function renderCreateScreen(): void
     {
         $this->renderView('tasks/create');
     }
@@ -51,15 +51,11 @@ class TaskController
 
     public function create()
     {
-        try {
-            $this->service->create([
-                'title'       => $this->input->post('title'),
-                'description' => $this->input->post('description'),
-                'status'      => $this->input->post('status', 'todo')
-            ]);
-        } catch (Throwable $throwable) {
-            var_dump('can\'t create todo');
-        }
+        $this->service->create([
+            'title'       => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'status'      => $this->input->post('status', 'todo')
+        ]);
     }
 
     public function read()

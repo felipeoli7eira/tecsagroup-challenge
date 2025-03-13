@@ -1,5 +1,4 @@
-import { CreateTask } from "./services/create-task.service.js";
+import { Create } from "./services/create-task.service.js";
 
-const createTaskModule = new CreateTask();
-
-createTaskModule.handleSubmit();
+const module = new Create();
+module.mount();
