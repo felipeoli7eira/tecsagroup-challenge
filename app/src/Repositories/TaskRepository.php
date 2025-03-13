@@ -46,7 +46,17 @@ class TaskRepository
 
     public function update(int $id, array $data): bool
     {
-        $stmt = $this->db->prepare("UPDATE tasks SET title=:title, description=:description, status=:status WHERE id=:id");
+        $updateQuery = "UPDATE tasks SET ";
+
+        foreach ($data as $key => $value) {
+            $updateQuery .=  "{$key}=:{$key}, ";
+        }
+
+        $updateQuery = rtrim($updateQuery, ', ');
+
+        $updateQuery .= " WHERE id=:id";
+
+        $stmt = $this->db->prepare($updateQuery);
 
         return $stmt->execute([...$data, 'id' => $id]);
     }

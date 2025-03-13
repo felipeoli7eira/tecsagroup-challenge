@@ -9,18 +9,6 @@ use Pecee\Http\Request;
 use Src\Services\TaskService;
 use Throwable;
 
-enum Status: string
-{
-    case do = 'A fazer';
-    case doing = 'Fazendo';
-    case done = 'Feito';
-
-    public function value(): string
-    {
-        return $this->value;
-    }
-}
-
 class TaskController
 {
     private readonly Request $request;
@@ -54,7 +42,7 @@ class TaskController
         $this->service->create([
             'title'       => $this->input->post('title'),
             'description' => $this->input->post('description'),
-            'status'      => $this->input->post('status', 'todo')
+            'status'      => $this->input->post('status')
         ]);
     }
 
@@ -75,9 +63,9 @@ class TaskController
     public function update(int $id)
     {
         $this->service->update($id, [
-            'title'       => $this->input->post('title')->value,
-            'description' => $this->input->post('description')->value,
-            'status'      => $this->input->post('status', 'todo')->value,
+            'title'       => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'status'      => $this->input->post('status'),
         ]);
     }
 
@@ -88,6 +76,11 @@ class TaskController
 
     private function renderView(string $viewName): void
     {
+        // Previne que a página seja exibida em um iframe (Clickjacking)
+        header('X-Frame-Options: DENY');
+        // Previne o navegador de tentar interpretar arquivos como diferentes do tipo MIME declarado
+        header('X-Content-Type-Options: nosniff');
+
         $view = $viewName;
         include_once __DIR__ . '/../views/container.php';
     }
