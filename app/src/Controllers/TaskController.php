@@ -27,6 +27,8 @@ class TaskController
     private readonly Input $input;
     private readonly TaskService $service;
 
+    private string $view;
+
     public function __construct()
     {
         $this->request = new Request();
@@ -36,22 +38,20 @@ class TaskController
 
     public function renderCreateTaskPage(): void
     {
-        $view = '/tasks/create';
-        include_once __DIR__ . '/../views/view.php';
+        $this->renderView('/tasks/create');
     }
 
-    public function renderEditTaskPage(int $id): void
+    public function renderUpdateScreen(): void
     {
-        $view = '/tasks/edit';
-        $data = $this->service->readOne($id);
+        $this->renderView('/tasks/update');
 
-        $data->friendlyStatus = match ($data->status) {
-            'do'    => Status::do->value(),
-            'doing' => Status::doing->value(),
-            'done'  => Status::done->value(),
-        };
+        // $data = $this->service->readOne($id);
 
-        include_once __DIR__ . '/../views/view.php';
+        // $data->friendlyStatus = match ($data->status) {
+        //     'do'    => Status::do->value(),
+        //     'doing' => Status::doing->value(),
+        //     'done'  => Status::done->value(),
+        // };
     }
 
     public function renderHomePage(): void
@@ -82,6 +82,11 @@ class TaskController
         }
     }
 
+    public function readOne(int $id)
+    {
+        $this->service->readOne($id);
+    }
+
     public function update(int $id)
     {
         $this->service->update($id, [
@@ -94,5 +99,11 @@ class TaskController
     public function delete(int $id)
     {
         $this->service->delete($id);
+    }
+
+    private function renderView(string $viewName): void
+    {
+        $view = $viewName;
+        include_once __DIR__ . '/../views/view.php';
     }
 }

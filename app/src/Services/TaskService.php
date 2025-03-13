@@ -5,6 +5,7 @@ namespace Src\Services;
 use Pecee\Http\Request;
 use Pecee\Http\Response;
 use Src\Repositories\TaskRepository;
+use Throwable;
 
 class TaskService
 {
@@ -38,9 +39,17 @@ class TaskService
         $this->response->httpCode(200)->json($data);
     }
 
-    public function readOne(int $id): \stdClass
+    public function readOne(int $id): void
     {
-        return $this->repository->readOne($id);
+        try {
+            $data = $this->repository->readOne($id);
+        } catch (Throwable $throwable) {
+            $this->response->json([
+                'error' => $throwable->getMessage(),
+            ]);
+        }
+
+        $this->response->httpCode(200)->json((array) $data);
     }
 
     public function update(int $id, array $data)

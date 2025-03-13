@@ -4,7 +4,7 @@ use Pecee\SimpleRouter\SimpleRouter as Route;
 
 Route::get('/', 'TaskController@renderHomePage');
 Route::get('/cadastro', 'TaskController@renderCreateTaskPage');
-Route::get('/edicao/{id}', 'TaskController@renderEditTaskPage');
+Route::get('/edicao/{id}', 'TaskController@renderUpdateScreen');
 
 Route::group(['prefix' => '/api'], function (): void {
     Route::post('/task', 'TaskController@create');

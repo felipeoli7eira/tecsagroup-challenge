@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center row m-0">
-    <form class="p-5 col col-12 col-md-3" name="updateTaskForm">
+    <form class="p-5 col col-12 col-md-3" name="updateForm">
         <div class="row mb-5">
-            <p class="m-0 p-0">O status atual da tarefa é "<b><?= $data->friendlyStatus ?></b>".</p>
+            <p class="m-0 p-0">O status atual da tarefa é "<b class="status-info"></b>".</p>
             <p class="m-0 p-0">Você pode mudar para um diferente deste.</p>
         </div>
 
@@ -16,8 +16,7 @@
                     class="form-control"
                     placeholder="..."
                     name="title"
-                    id="title"
-                    value="<?= $data->title ?>" />
+                    id="title" />
             </div>
         </div>
 
@@ -32,7 +31,6 @@
                     class="form-control"
                     placeholder="..."
                     name="description"
-                    value="<?= $data->description ?>"
                     id="description" />
             </div>
         </div>
@@ -44,17 +42,6 @@
 
             <div class="col-12 col-md-10 p-0">
                 <select class="form-control" name="status" id="status">
-                    <?php if ($data->status !== 'do'): ?>
-                        <option value="do">Fazer</option>
-                    <?php endif ?>
-
-                    <?php if ($data->status !== 'doing'): ?>
-                        <option value="doing">Fazendo</option>
-                    <?php endif ?>
-
-                    <?php if ($data->status !== 'done'): ?>
-                        <option value="doing">Feito</option>
-                    <?php endif ?>
                 </select>
             </div>
         </div>
@@ -65,4 +52,4 @@
     </form>
 </div>
 
-<script src="/modules/task/create.js" type="module"></script>
+<script src="/modules/task/update.js" type="module"></script>
