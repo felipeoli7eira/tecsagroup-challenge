@@ -9,4 +9,7 @@ use Src\Database\DatabaseBootstrap;
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../router/router.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
 new DatabaseBootstrap();
