@@ -12,4 +12,9 @@ Route::group(['prefix' => '/api'], function (): void {
     Route::get('/tasks', 'TaskController@read');
     Route::get('/task/{id}', 'TaskController@readOne');
     Route::delete('/task/{id}/delete', 'TaskController@delete');
+
+    // Auth
+
+    Route::post('/auth/login', 'AuthController@login');
+    Route::post('/auth/logout', 'AuthController@logout');
 });

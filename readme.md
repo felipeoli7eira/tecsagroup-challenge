@@ -9,7 +9,6 @@ TODO
 - rota de login na api
 - middleware auth
 
-- verificação dos pontos sobre sanitização e entrada de dados
 - verificar a viabilidade de testes unitários
 - mudar a aplicação para rodar na porta 9000
 - verificar sobre boas práticas (psr)
@@ -17,9 +16,10 @@ TODO
 
 # Fazendo
 
-- validação e dados no backend
 - verificar responsividade das páginas
 
 # Feitos
 
 - validacao de crate e update no front
+- validação e dados no backend
+- verificação dos pontos sobre sanitização e entrada de dados
