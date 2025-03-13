@@ -35,7 +35,7 @@ class TaskRepository
         return $stmt->fetchAll();
     }
 
-    public function readOne(int $id): \stdClass
+    public function readOne(int $id): \stdClass|bool
     {
         $stmt = $this->db->prepare("SELECT * FROM tasks WHERE id=:id");
         $stmt->bindParam(':id', $id);

@@ -166,6 +166,12 @@ class TaskService
             ]);
         }
 
+        if ($data === false) {
+            $this->response->httpCode(404)->json([
+                'error' => 'Task not found',
+            ]);
+        }
+
         $this->response->httpCode(200)->json((array) $data);
     }
 
@@ -173,6 +179,14 @@ class TaskService
     {
         if (is_null($data['title']?->value) && is_null($data['description']?->value) && is_null($data['status']?->value)) {
             return $this->response->httpCode(200)->json(['message' => 'Nothing to update']);
+        }
+
+        $exists = $this->repository->readOne($id);
+
+        if ($exists === false) {
+            $this->response->httpCode(404)->json([
+                'error' => 'Task not found',
+            ]);
         }
 
         if (! $this->validateInput($data, [
@@ -189,6 +203,8 @@ class TaskService
             $sanitizedData = $this->sanitizeInput($data);
 
             $result = $this->repository->update($id, $sanitizedData);
+
+            var_dump($result);
         } catch (Throwable $throwable) {
             $this->response->httpCode(500)->json([
                 'error' => $throwable->getMessage(),
@@ -208,6 +224,14 @@ class TaskService
 
     public function delete(int $id)
     {
+        $exists = $this->repository->readOne($id);
+
+        if ($exists === false) {
+            $this->response->httpCode(404)->json([
+                'error' => 'Task not found',
+            ]);
+        }
+
         try {
             $result = $this->repository->delete($id);
         } catch (Throwable $throwable) {
