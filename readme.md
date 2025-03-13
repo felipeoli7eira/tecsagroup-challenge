@@ -16,10 +16,10 @@ TODO
 
 # Fazendo
 
-- verificar responsividade das páginas
+
 
 # Feitos
-
+- verificar responsividade das páginas
 - validacao de crate e update no front
 - validação e dados no backend
 - verificação dos pontos sobre sanitização e entrada de dados

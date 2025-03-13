@@ -46,7 +46,8 @@
         </div>
 
         <div class="row">
-            <div class="p-0 d-flex justify-content-end">
+            <div class="p-0 d-flex justify-content-end gap-3">
+                <a href="/" class="btn fw-semibold">Voltar</a>
                 <button type="submit" class="btn btn-primary fw-semibold">Cadastrar</button>
             </div>
         </div>
