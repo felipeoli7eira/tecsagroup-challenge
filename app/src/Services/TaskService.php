@@ -41,8 +41,15 @@ class TaskService
 
     public function read()
     {
-        $data = $this->repository->read();
-        $this->response->httpCode(200)->json($data);
+        try {
+            $data = $this->repository->read();
+        } catch (Throwable $throwable) {
+            $this->response->httpCode(500)->json([
+                'error' => $throwable->getMessage(),
+            ]);
+        }
+
+        $this->response->httpCode(200)->json((array) $data);
     }
 
     public function readOne(int $id): void
@@ -50,7 +57,7 @@ class TaskService
         try {
             $data = $this->repository->readOne($id);
         } catch (Throwable $throwable) {
-            $this->response->json([
+            $this->response->httpCode(500)->json([
                 'error' => $throwable->getMessage(),
             ]);
         }
@@ -60,9 +67,15 @@ class TaskService
 
     public function update(int $id, array $data)
     {
-        $result = $this->repository->update($id, $data);
+        try {
+            $result = $this->repository->update($id, $data);
+        } catch (Throwable $throwable) {
+            $this->response->httpCode(500)->json([
+                'error' => $throwable->getMessage(),
+            ]);
+        }
 
-        if (! $result) {
+        if ($result === false) {
             $this->response->httpCode(500)->json([
                 'error' => 'Failed to update task',
             ]);
@@ -75,9 +88,15 @@ class TaskService
 
     public function delete(int $id)
     {
-        $result = $this->repository->delete($id);
+        try {
+            $result = $this->repository->delete($id);
+        } catch (Throwable $throwable) {
+            $this->response->httpCode(500)->json([
+                'error' => $throwable->getMessage(),
+            ]);
+        }
 
-        if (! $result) {
+        if ($result === false) {
             $this->response->httpCode(500)->json([
                 'error' => 'Failed to delete task',
             ]);
