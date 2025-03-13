@@ -30,7 +30,7 @@ class TaskRepository
 
     public function read(): array
     {
-        $stmt = $this->db->query("SELECT * FROM tasks");
+        $stmt = $this->db->query("SELECT * FROM tasks ORDER BY id DESC");
 
         return $stmt->fetchAll();
     }
