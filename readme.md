@@ -101,9 +101,7 @@ A Task CLI não é necessária para subir esse projeto. O comando ```docker comp
 
 ## Seup
 
-<video width="100%" height="380" controls>
-  <source src="./docs/preview/2025-03-14.mp4" type="video/mp4">
-</video>
+Assista ao [vídeo](https://drive.google.com/file/d/1_kNFM7EEupQ0VNOcMuCj7t5X2X4KozGl/view?usp=sharing).
 
 ## Atenção!
 
