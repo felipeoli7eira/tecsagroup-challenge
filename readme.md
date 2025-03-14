@@ -101,7 +101,7 @@ A Task CLI não é necessária para subir esse projeto. O comando ```docker comp
 
 ## Seup
 
-- Close esse repositório para o seu ambiente de trabalho
+- Clone esse repositório para o seu ambiente de trabalho
 ```sh
 git clone git@github.com:felipeoli7eira/tecsagroup-challenge.git
 ```
