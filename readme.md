@@ -101,6 +101,14 @@ A Task CLI não é necessária para subir esse projeto. O comando ```docker comp
 
 ## Seup
 
+<video width="100%" height="380" controls>
+  <source src="./docs/preview/2025-03-14.mp4" type="video/mp4">
+</video>
+
+## Atenção!
+
+Caso você tenha recebido o mesmo erro de instalação do x-debug, apenas execute novamente o comando ```docker compose up -d```.
+
 - Clone esse repositório para o seu ambiente de trabalho
 ```sh
 git clone git@github.com:felipeoli7eira/tecsagroup-challenge.git
