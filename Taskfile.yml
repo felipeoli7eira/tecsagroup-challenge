@@ -7,7 +7,7 @@ tasks:
   setup:
     cmds:
       - docker compose up -d --build
-      # - task: grant_permissions
+      - task: grant_permissions
     desc: "Setup environment"
 
   stop:
@@ -19,11 +19,6 @@ tasks:
     cmds:
       - docker compose up -d
     desc: "Start environment"
-
-  start_build:
-    cmds:
-      - docker compose up -d --build
-    desc: "Start environment with build"
 
   grant_permissions:
     cmds:

@@ -1,5 +1,5 @@
 <div class="row m-0 p-3 p-lg-5">
-    <form class="col col-12 col-lg-5 offset-lg-4" name="createForm">
+    <form class="col col-12 col-lg-5 offset-lg-3" name="createForm">
         <div class="mb-3 row">
             <div class="col-12 col-lg-2 mb-2 mb-lg-0 d-flex justify-content-start align-items-center p-0">
                 <label for="title" class="form-label m-0">Nome <span class="text-danger fw-bold">*</span></label>
