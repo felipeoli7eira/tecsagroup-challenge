@@ -21,7 +21,12 @@ RUN pecl install xdebug \
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-COPY ./php.ini /usr/local/etc/php/php.ini
-COPY ./apache/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
+COPY ./docker/php/apache/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+COPY ../../app/composer.json .
+COPY ../../app/composer.lock .
+
+RUN composer install
 
 EXPOSE 80
