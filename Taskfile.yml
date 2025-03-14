@@ -7,6 +7,8 @@ tasks:
   setup:
     cmds:
       - docker compose up -d --build
+      - docker exec -it {{.CONTAINER_BACKEND}} composer install
+      - docker exec -it {{.CONTAINER_BACKEND}} cp .env.example .env
       - task: grant_permissions
     desc: "Setup environment"
 

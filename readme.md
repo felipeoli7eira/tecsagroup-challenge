@@ -123,6 +123,18 @@ task setup
 docker compose up -d
 ```
 
+Caso você tenha usado a CLI do docker compose, essas etapas adicionais devem ser realizadas:
+
+- Instale as dependências
+```sh
+docker exec -it phpapch_service composer install
+```
+
+- Crie o arquivo .env
+```sh
+docker exec -it phpapch_service cp .env.example .env
+```
+
 Se tudo ocorreu bem, você pode acessar ```http://localhost:9000``` e ver a seguinte tela:
 
 ![Tela inicial](./docs/preview/tela-inicial.png)

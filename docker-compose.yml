@@ -12,6 +12,9 @@ services:
       - database
     networks:
       - network_default
+    environment:
+      - APACHE_RUN_USER=#1000
+      - APACHE_RUN_GROUP=#1000
 
   database:
     image: mysql:8.0
