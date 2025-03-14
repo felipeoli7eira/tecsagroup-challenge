@@ -101,7 +101,7 @@ A Task CLI não é necessária para subir esse projeto. O comando ```docker comp
 
 ## Seup
 
-Assista ao [vídeo](https://drive.google.com/file/d/1_kNFM7EEupQ0VNOcMuCj7t5X2X4KozGl/view?usp=sharing).
+Primeiro, assista ao vídeo: <a href="https://drive.google.com/file/d/1_kNFM7EEupQ0VNOcMuCj7t5X2X4KozGl/view?usp=sharing" target="_blank">clique aqui</a>.
 
 ## Atenção!
 
