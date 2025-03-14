@@ -1,4 +1,4 @@
-# TecasGroup - Desafio técnico
+# TecsaGroup - Desafio técnico
 
 Desafio técnico proposto pela [TecsaGroup](https://tecsagroup.com.br).
 
